@@ -5,11 +5,11 @@ RUN pip3 install awscli --upgrade
 
 COPY entrypoint.sh .
 COPY backup.sh .
-COPY upload.sh .
+COPY upload-destinations upload-destinations
 
 RUN chmod +x entrypoint.sh
 RUN chmod +x backup.sh
-RUN chmod +x upload.sh
+RUN chmod -R +x upload-destinations
 
 RUN mkdir /backups
 RUN chgrp -R 0 /backups && \
